@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+	<title>Password Verification</title>
+	<script>
+		function Uverify()
+		{
+		    var name = document.getElementById("txtName").value;
+		    var Umsg = document.getElementById("Umsg");
+		    var regExp = /[!@#$%&]/;
+		    if(name.match(regExp))
+			{
+			    Umsg.innerHTML = "User Name must contain only alphabets, number"
+			}
+		    else
+			{
+			    Umsg.innerHTML = " "
+			}
+        }
+		function Pverify()
+		{
+			var pwd = document.getElementById("txtPwd").value;
+			var Pmsg = document.getElementById("Pmsg");
+			var grade = document.getElementById("grade");
+			function ShowGrade(min, max, low, high, value)
+			{
+				grade.min = min;
+				grade.max = max;
+				grade.low = low;
+				grade.high = high;
+				grade.value = value
+                grade.style.display = "block"
+			}
+			var regExp = /(?=.*[A-Z])\w{4,10}/;
+			if(pwd.match(regExp))
+			{
+			    Pmsg.innerHTML = "Strong Password";
+			    ShowGrade(1, 100, 0, 0, 100);
+			}
+			else
+			{
+			    if(pwd.length < 4)
+			    {
+                    Pmsg.innerHTML = "Poor Password<br>Password must be at least 4 characters";
+                    ShowGrade(1, 100, 60, 80, 100);
+                }
+                else
+				{
+                    Pmsg.innerHTML = "Weak Password<br>Password must contains at least one Capital letter";
+                    ShowGrade(1, 100, 40, 80, 100);
+                }
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<form>
+			<fieldset style="width: 0px; margin: auto;">
+				<legend> Sign In </legend>
+				<label>UserName : </label>
+				<input type="text" id="txtName" onkeyup="Uverify()">
+				<span id="Umsg"></span>
+				<br><br>
+				<label>Password&nbsp : </label>
+				<input type="password" id="txtPwd" onkeyup="Pverify()">
+				<meter id="grade" style="display: none"></meter>
+				<span id="Pmsg"></span>
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>
