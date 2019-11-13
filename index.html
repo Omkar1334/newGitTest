@@ -2,6 +2,7 @@
 <html lang="en-IN">
 <head>
 	<title>Password Verification</title>
+	<link rel="shortcut icon" href="https://image.flaticon.com/icons/png/128/1000/1000997.png">
 	<script>
 		function Uverify()
 		{
@@ -16,7 +17,7 @@
 			{
 			    Umsg.innerHTML = " "
 			}
-        }
+		}
 		function Pverify()
 		{
 			var pwd = document.getElementById("txtPwd").value;
@@ -29,7 +30,7 @@
 				grade.low = low;
 				grade.high = high;
 				grade.value = value
-                grade.style.display = "block"
+                		grade.style.display = "block"
 			}
 			var regExp = /(?=.*[A-Z])\w{4,10}/;
 			if(pwd.match(regExp))
@@ -41,14 +42,14 @@
 			{
 			    if(pwd.length < 4)
 			    {
-                    Pmsg.innerHTML = "Poor Password<br>Password must be at least 4 characters";
-                    ShowGrade(1, 100, 60, 80, 100);
-                }
-                else
-				{
-                    Pmsg.innerHTML = "Weak Password<br>Password must contains at least one Capital letter";
-                    ShowGrade(1, 100, 40, 80, 100);
-                }
+				    Pmsg.innerHTML = "Poor Password<br>Password must be at least 4 characters";
+				    ShowGrade(1, 100, 60, 80, 100);
+			    }
+			    else
+			    {
+				    Pmsg.innerHTML = "Weak Password<br>Password must contains at least one Capital letter";
+				    ShowGrade(1, 100, 40, 80, 100);
+			    }
 			}
 		}
 	</script>
